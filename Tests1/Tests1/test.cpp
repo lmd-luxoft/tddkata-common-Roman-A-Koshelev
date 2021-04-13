@@ -1,6 +1,11 @@
 #include "pch.h"
+#include <gtest/gtest.h>
+#include "Calc.h"
 
-TEST(TestCaseName, TestName) {
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
+TEST(CalcTest, EmptyStringShouldBeZero)
+{
+	Calc calc;
+	int expected = 0;
+	int actual = calc.sum("");
+	ASSERT_EQ(expected, actual);
 }
