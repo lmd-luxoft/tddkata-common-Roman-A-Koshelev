@@ -2,7 +2,8 @@
 # Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
 ################################################################################
 
-/Tests1/.vs/Tests1/v16
+
+/Tests1/.vs/
 /Tests1/packages/Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.3
 /Tests1/Tests1/Tests1.vcxproj.user
 /Tests1/Debug
