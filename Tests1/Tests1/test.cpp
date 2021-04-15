@@ -4,18 +4,20 @@
 
 class CalcTest : public ::testing::Test {
 public:
-	CalcTest();
-	~CalcTest();
-	void SetUp();
-	void TearDown();
+	void SetUp() override;
+	void TearDown() override;
+
+protected:
+	static void SetUpTestCase();
+	static void TearDownTestCase();
 };
 
-CalcTest::CalcTest() {
-	std::cout << "CalcTest::CalcTEST_F()" << std::endl;
+void CalcTest::SetUpTestCase() {
+	std::cout << "CalcTest::SetUpTestCase()" << std::endl;
 }
 
-CalcTest::~CalcTest() {
-	std::cout << "CalcTest::~CalcTEST_F()" << std::endl;
+void CalcTest::TearDownTestCase() {
+	std::cout << "CalcTest::TearDownTestCase()" << std::endl;
 }
 
 void CalcTest::SetUp() {
@@ -25,6 +27,7 @@ void CalcTest::SetUp() {
 void CalcTest::TearDown() {
 	std::cout << "CalcTest::TearDown()" << std::endl;
 }
+
 
 
 // Ноль параметров
@@ -213,7 +216,7 @@ TEST_F(CalcTest, VeryBigValIsError4)
 	int actual = calc.sum((expr1 + "," + expr2).c_str());
 	ASSERT_EQ(expected, actual);
 }
-/**/
+
 // Чисел более 2-х
 
 TEST_F(CalcTest, ThreeVal_Success)
@@ -364,4 +367,3 @@ TEST_F(CalcTest, FiveValFifthVeryBigValIsError)
 	int actual = calc.sum(("10,100,1000,10000," + expr).c_str());
 	ASSERT_EQ(expected, actual);
 }
-/**/
