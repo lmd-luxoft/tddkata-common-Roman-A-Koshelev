@@ -2,8 +2,33 @@
 #include <gtest/gtest.h>
 #include "Calc.h"
 
+class CalcTest : public ::testing::Test {
+public:
+	CalcTest();
+	~CalcTest();
+	void SetUp();
+	void TearDown();
+};
+
+CalcTest::CalcTest() {
+	std::cout << "CalcTest::CalcTEST_F()" << std::endl;
+}
+
+CalcTest::~CalcTest() {
+	std::cout << "CalcTest::~CalcTEST_F()" << std::endl;
+}
+
+void CalcTest::SetUp() {
+	std::cout << "CalcTest::SetUp()" << std::endl;
+}
+
+void CalcTest::TearDown() {
+	std::cout << "CalcTest::TearDown()" << std::endl;
+}
+
+
 // Ноль параметров
-TEST(CalcTest, EmptyStringShouldBeZero)
+TEST_F(CalcTest, EmptyStringShouldBeZero)
 {
 	Calc calc;
 	int expected = 0;
@@ -11,7 +36,7 @@ TEST(CalcTest, EmptyStringShouldBeZero)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, Sum0ShouldBe0)
+TEST_F(CalcTest, Sum0ShouldBe0)
 {
 	Calc calc;
 	int expected = 0;
@@ -19,7 +44,7 @@ TEST(CalcTest, Sum0ShouldBe0)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, Sum1MShouldBe1M)
+TEST_F(CalcTest, Sum1MShouldBe1M)
 {
 	Calc calc;
 	int expected = 1000000;
@@ -27,7 +52,7 @@ TEST(CalcTest, Sum1MShouldBe1M)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, Val75and125ShouldBe200)
+TEST_F(CalcTest, Val75and125ShouldBe200)
 {
 	Calc calc;
 	int expected = 200;
@@ -35,7 +60,7 @@ TEST(CalcTest, Val75and125ShouldBe200)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, VeryBigVal_1)
+TEST_F(CalcTest, VeryBigVal_1)
 {
 	Calc calc;
 	int expected = std::numeric_limits<int>::max();
@@ -45,7 +70,7 @@ TEST(CalcTest, VeryBigVal_1)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, VeryBigVal_2)
+TEST_F(CalcTest, VeryBigVal_2)
 {
 	Calc calc;
 	int expected = std::numeric_limits<int>::max();
@@ -55,7 +80,7 @@ TEST(CalcTest, VeryBigVal_2)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, AnyNegValIsError1)
+TEST_F(CalcTest, AnyNegValIsError1)
 {
 	Calc calc;
 	int expected = -1;
@@ -63,7 +88,7 @@ TEST(CalcTest, AnyNegValIsError1)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, AnyNegValIsError2)
+TEST_F(CalcTest, AnyNegValIsError2)
 {
 	Calc calc;
 	int expected = -1;
@@ -71,7 +96,7 @@ TEST(CalcTest, AnyNegValIsError2)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, AnyNegValIsError3)
+TEST_F(CalcTest, AnyNegValIsError3)
 {
 	Calc calc;
 	int expected = -1;
@@ -79,7 +104,7 @@ TEST(CalcTest, AnyNegValIsError3)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, AnyNegValIsError4)
+TEST_F(CalcTest, AnyNegValIsError4)
 {
 	Calc calc;
 	int expected = -1;
@@ -87,7 +112,7 @@ TEST(CalcTest, AnyNegValIsError4)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, StringValIsError1)
+TEST_F(CalcTest, StringValIsError1)
 {
 	Calc calc;
 	int expected = -1;
@@ -95,7 +120,7 @@ TEST(CalcTest, StringValIsError1)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, StringValIsError2)
+TEST_F(CalcTest, StringValIsError2)
 {
 	Calc calc;
 	int expected = -1;
@@ -103,7 +128,7 @@ TEST(CalcTest, StringValIsError2)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, StringValIsError3)
+TEST_F(CalcTest, StringValIsError3)
 {
 	Calc calc;
 	int expected = -1;
@@ -111,7 +136,7 @@ TEST(CalcTest, StringValIsError3)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, StringValIsError4)
+TEST_F(CalcTest, StringValIsError4)
 {
 	Calc calc;
 	int expected = -1;
@@ -119,7 +144,7 @@ TEST(CalcTest, StringValIsError4)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, StringValIsError5)
+TEST_F(CalcTest, StringValIsError5)
 {
 	Calc calc;
 	int expected = -1;
@@ -127,7 +152,7 @@ TEST(CalcTest, StringValIsError5)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, FloatingPointValIsError1)
+TEST_F(CalcTest, FloatingPointValIsError1)
 {
 	Calc calc;
 	int expected = -1;
@@ -135,7 +160,7 @@ TEST(CalcTest, FloatingPointValIsError1)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, FloatingPointValIsError2)
+TEST_F(CalcTest, FloatingPointValIsError2)
 {
 	Calc calc;
 	int expected = -1;
@@ -143,7 +168,7 @@ TEST(CalcTest, FloatingPointValIsError2)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, FloatingPointValIsError3)
+TEST_F(CalcTest, FloatingPointValIsError3)
 {
 	Calc calc;
 	int expected = -1;
@@ -151,7 +176,7 @@ TEST(CalcTest, FloatingPointValIsError3)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, VeryBigValIsError1)
+TEST_F(CalcTest, VeryBigValIsError1)
 {
 	Calc calc;
 	int expected = -1;
@@ -160,7 +185,7 @@ TEST(CalcTest, VeryBigValIsError1)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, VeryBigValIsError2)
+TEST_F(CalcTest, VeryBigValIsError2)
 {
 	Calc calc;
 	int expected = -1;
@@ -169,7 +194,7 @@ TEST(CalcTest, VeryBigValIsError2)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, VeryBigValIsError3)
+TEST_F(CalcTest, VeryBigValIsError3)
 {
 	Calc calc;
 	int expected = -1;
@@ -179,7 +204,7 @@ TEST(CalcTest, VeryBigValIsError3)
 	ASSERT_EQ(expected, actual);
 }
 
-TEST(CalcTest, VeryBigValIsError4)
+TEST_F(CalcTest, VeryBigValIsError4)
 {
 	Calc calc;
 	int expected = -1;
@@ -188,3 +213,155 @@ TEST(CalcTest, VeryBigValIsError4)
 	int actual = calc.sum((expr1 + "," + expr2).c_str());
 	ASSERT_EQ(expected, actual);
 }
+/**/
+// Чисел более 2-х
+
+TEST_F(CalcTest, ThreeVal_Success)
+{
+	Calc calc;
+	int expected = 1110;
+	int actual = calc.sum("10,100,1000");
+	ASSERT_EQ(expected, actual);
+}
+
+TEST_F(CalcTest, ThreeValThirdNegValIsError1)
+{
+	Calc calc;
+	int expected = 1110;
+	int actual = calc.sum("10,100,-1");
+	ASSERT_EQ(expected, actual);
+}
+
+TEST_F(CalcTest, ThreeValThirdNegValIsError2)
+{
+	Calc calc;
+	int expected = 1110;
+	int actual = calc.sum("10,100,-1000000");
+	ASSERT_EQ(expected, actual);
+}
+
+TEST_F(CalcTest, ThreeValThirdStringValError1)
+{
+	Calc calc;
+	int expected = 1110;
+	int actual = calc.sum("10,100,val3");
+	ASSERT_EQ(expected, actual);
+}
+
+TEST_F(CalcTest, ThreeValThirdFloatingPointValIsError)
+{
+	Calc calc;
+	int expected = 1110;
+	int actual = calc.sum("10,100,val3");
+	ASSERT_EQ(expected, actual);
+}
+
+TEST_F(CalcTest, ThreeValThirdVeryBigValIsError)
+{
+	Calc calc;
+	int expected = -1;
+	std::string expr = std::to_string((std::int64_t)(std::numeric_limits<int>::max()) + 1);
+	int actual = calc.sum(("10,100," + expr).c_str());
+	ASSERT_EQ(expected, actual);
+}
+
+
+TEST_F(CalcTest, FourVal_Success)
+{
+	Calc calc;
+	int expected = 11110;
+	int actual = calc.sum("10,100,1000,10000");
+	ASSERT_EQ(expected, actual);
+}
+
+TEST_F(CalcTest, FourValFouthNegValIsError1)
+{
+	Calc calc;
+	int expected = 1110;
+	int actual = calc.sum("10,100,1000,-1");
+	ASSERT_EQ(expected, actual);
+}
+
+TEST_F(CalcTest, FourValFouthNegValIsError2)
+{
+	Calc calc;
+	int expected = 1110;
+	int actual = calc.sum("10,100,1000,-1000000");
+	ASSERT_EQ(expected, actual);
+}
+
+TEST_F(CalcTest, FourValFouthStringValError1)
+{
+	Calc calc;
+	int expected = 1110;
+	int actual = calc.sum("10,100,1000,val3");
+	ASSERT_EQ(expected, actual);
+}
+
+TEST_F(CalcTest, FourValFouthFloatingPointValIsError)
+{
+	Calc calc;
+	int expected = 1110;
+	int actual = calc.sum("10,100,1000,10.0");
+	ASSERT_EQ(expected, actual);
+}
+
+TEST_F(CalcTest, FourValFouthVeryBigValIsError)
+{
+	Calc calc;
+	int expected = -1;
+	std::string expr = std::to_string((std::int64_t)(std::numeric_limits<int>::max()) + 1);
+	int actual = calc.sum(("10,100,1000," + expr).c_str());
+	ASSERT_EQ(expected, actual);
+}
+
+
+TEST_F(CalcTest, FiveVal_Success)
+{
+	Calc calc;
+	int expected = 111110;
+	int actual = calc.sum("10,100,1000,10000,100000");
+	ASSERT_EQ(expected, actual);
+}
+
+TEST_F(CalcTest, FiveValFifthNegValIsError1)
+{
+	Calc calc;
+	int expected = 1110;
+	int actual = calc.sum("10,100,1000,10000,-1");
+	ASSERT_EQ(expected, actual);
+}
+
+TEST_F(CalcTest, FiveValFifthNegValIsError2)
+{
+	Calc calc;
+	int expected = 1110;
+	int actual = calc.sum("10,100,1000,10000,-1000000");
+	ASSERT_EQ(expected, actual);
+}
+
+TEST_F(CalcTest, FiveValFifthStringValError1)
+{
+	Calc calc;
+	int expected = 1110;
+	int actual = calc.sum("10,100,1000,10000,val3");
+	ASSERT_EQ(expected, actual);
+}
+
+TEST_F(CalcTest, FiveValFifthFloatingPointValIsError)
+{
+	Calc calc;
+	int expected = 1110;
+	int actual = calc.sum("10,100,1000,10000,10.0");
+	ASSERT_EQ(expected, actual);
+}
+
+TEST_F(CalcTest, FiveValFifthVeryBigValIsError)
+{
+	Calc calc;
+	int expected = -1;
+	std::string expr = std::to_string((std::int64_t)(std::numeric_limits<int>::max()) + 1);
+	int actual = calc.sum(("10,100,1000,10000," + expr).c_str());
+	ASSERT_EQ(expected, actual);
+}
+/**/
